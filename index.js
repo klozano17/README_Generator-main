@@ -28,7 +28,7 @@ const questions = [
     },
     {
         type: "list",
-        choices: ['Apache', 'Boost', 'Eclipse', 'IBM', 'ISC', 'MIT', 'Mozilla', 'zLib', 'Unlicense'],
+        choices: ['Apache', 'Boost', 'Eclipse', 'GPL', 'IBM', 'ISC', 'MIT', 'Mozilla', 'zLib', 'Unlicense'],
         message: "Choose a license for your project:",
         name: "license",
     },
@@ -50,25 +50,18 @@ const questions = [
 ];
 
 //function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, function(err) {
-        console.log(fileName)
-        console.log(data)
-        if (err) {
-            return console.log(err)
-        } else {
-            console.log ("Successful")
-        }
-    })
+function writeToFile(data) {
+    const filename = "./dist/README.md";
+
+    fs.writeFile(filename, data, function (err) {
+        err ? console.log(err) : console.log(filename + " created!")
+    });
 }
 
 //function to initialize app
 function init() {
     inquirer.prompt(questions)
-        .then(function(data) {
-            writeToFile("README.me", generateMarkdown(data));
-            console.log(data)
-        })
+    .then (answers => writeToFile(generateMarkdown(answers)))
 }
 
 // Function call to initialize app
