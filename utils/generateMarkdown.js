@@ -1,9 +1,37 @@
-//function that returns a license badge
-function renderLicenseBadge(license) {
+//function that returns a license badge based on which licnese is passed in
+function renderLicenseBadge(response) {
+  ["MIT", "BSD 3-Clause", "BSD 2-Clause", "GPL", "Apache 2.0", "LGPL", "MPL 2.0", "CDDL", "EPL"]
   let badge = "";
-
-  if(license != "None") {
-    badge = "![License Badge](https://shields.io/badge/license-" + license + "-green)";
+  switch (response) {
+    case "MIT":
+      badge = `https://img.shields.io/badge/License-MIT-yellow.svg`;
+      break;
+    case "BSD 3-Clause":
+      badge = `https://img.shields.io/badge/License-BSD%203--Clause-orange.svg`;
+      break;
+    case "BSD 2-Clause":
+      badge = `https://img.shields.io/badge/License-BSD%202--Clause-orange.svg`;
+      break;
+    case "GPL":
+      badge = `https://img.shields.io/badge/License-LGPL%20v3-blue.svg`;
+      break;
+      case "Apache 2.0":
+        badge = `https://img.shields.io/badge/License-Apache%202.0-green.svg`;
+        break;
+    case "LGPL":
+      badge = `https://img.shields.io/badge/License-LGPL%20v3-blue.svg`;
+      break;
+    case "MPL 2.0":
+      badge = `https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg`;
+      break;
+    case "CDDL":
+      badge = `https://img.shields.io/badge/License-CDDL%201.0-lightblue.svg`;
+      break;
+    case "EPL":
+      badge = `https://img.shields.io/badge/License-EPL%201.0-red.svg`;
+      break;
+    default:
+      badge = "";
   }
 
   return badge;
@@ -35,16 +63,47 @@ function renderLicenseLink(license) {
   
   return licenseLink;
 }
-  
+
 
 //function that returns the license section of README
 function renderLicenseSection(license) {
-  let licenseSect = "";
+  if (license === "") {
+    let licenseSection = "";
+    return licenseSection;
+  } else {
+    let licenseSection = `![License](${renderLicenseBadge(license)})\n 
+  For more information about this license - <${renderLicenseLink(license)}>`
+    return licenseSection;
+  }
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+function generateMarkdown(answer) {
+  return `
+  ${renderLicenseSection(answer.license)}
+  # Title
+  ${answer.Title}
+  ## Description
+  ${answer.Description}
+  ## Table of Contents
+  * [User Story](#User)
+  * [Installation](#Installation)
+  * [Test](#Testing)
+  * [Contributors](#contributors)
+  * [License](#license)
+  * 
+  ## User Story
+  ${answer.User}
+  ## Installation
+  ${answer.Installation}
+  ## Test
+  ${answer.Testing}
+  ## Contributors
+  ${answer.Contributors}
+  ## License
+  ${answer.License}
+  GitHub - https://github.com/${answer.git} 
+  For any questions regarding this project, feel free to reach out to me at ${answer.email} 
 
 `;
 }
