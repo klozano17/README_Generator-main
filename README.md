@@ -8,7 +8,7 @@
 
 
   ## Description
-   This command-line application generates a professional README file for a development project. The program will grab your input and create a markdown file. The project utilizes Node.js
+  This command-line application generates a professional README file for a development project. The program will grab your input and create a markdown file. The project utilizes Node.js
 
   ## Table of Contents
 
@@ -37,8 +37,7 @@
   ## License
   MIT
 
-  ## Questions
-  GitHub - https://github.com/undefined 
+  GitHub - https://github.com/klozano17 
   Email address - klozano17@gmail.com
   For any questions regarding this project, contact me.
 
