@@ -20,7 +20,7 @@
 
   ## Usage
 
-  To use this project - Screenshot Included
+  To use this project type node index.js into terminal
 
   ## Install
 
