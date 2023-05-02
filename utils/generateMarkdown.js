@@ -91,30 +91,30 @@ function generateMarkdown(answer) {
 
   ## Table of Contents
 
-  - [Installation](#installation)
+  - [Install](#install)
   - [Usage](#usage)
-  - [Testing](#testing)
-  - [Contributors](#contributors)
+  - [Test](#test)
+  - [Contribution](#contribution)
   - [License](#license)
 
   ## Usage
 
   To use this project - ${answer.usage}
 
-  ## Installation
+  ## Install
 
-  To install this project - ${answer.installation}
+  To install this project - ${answer.install}
 
-  ## Testing
-  ${answer.testing}
+  ## Test
+  ${answer.test}
 
-  ## Contributors
-  ${answer.contributors}
+  ## Contribution
+  ${answer.contribution}
 
   ## License
   ${answer.license}
 
-  GitHub - https://github.com/${answer.git} 
+  GitHub - https://github.com/${answer.github} 
   Email address - ${answer.email}
   For any questions regarding this project, contact me.
 

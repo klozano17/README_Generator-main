@@ -34,6 +34,11 @@ const questions = [
     },
     {
         type: "input",
+        message: "Enter test instructions",
+        name: "test",
+    },
+    {
+        type: "input",
         message: "Enter contribution guidelines:",
         name: "contribution",
     },
@@ -66,7 +71,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
         .then(function(data) {
-            writeToFile("README.me", generateMarkdown(data));
+            writeToFile("README.md", generateMarkdown(data));
             console.log(data)
         })
 }
